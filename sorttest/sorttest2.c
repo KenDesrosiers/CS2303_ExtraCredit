@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "sort.h"
-
+#include <time.h>
 
 
 /** Main program
@@ -11,9 +11,10 @@
  */
 
 int main (int argc, const char* argv[]) {
-
+	srand(time(0));
   int *arr;
   int count = atoi(argv[2]);
+  int whichOne = atoi(argv[3]);
 
   arr = (int*) calloc(count, sizeof(int));
   if (arr == NULL) {
@@ -24,7 +25,7 @@ int main (int argc, const char* argv[]) {
 	  arr[i] = rand();
   }
   // Now print, sort, and print the array, and time how long the sorting took.
-  timesort(arr, count);
+  timesort(arr, count, whichOne);
 
   return 0; // Indicate success!
 }

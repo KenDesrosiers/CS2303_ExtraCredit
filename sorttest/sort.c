@@ -47,6 +47,76 @@ void sort_descending(int nums[], int count) {
   }
 }
 
+
+
+/** Sorts an array of integers into descending order.
+ * Uses the bubble sort algorithm.
+ *
+ * @param nums Array to sort
+ * @param count Number of elements to sort
+ */
+
+void sortPointer(int nums[], int count) {
+  int round; // How many times left to go through the outer loop.
+  int i; // Loop counter for the inner loop
+  int inorder; // Used as a boolean (logical). 1 = array is in correct order.
+  int temp; // Temporary variable used while swapping array elements
+
+  inorder = 0; // Assume not sorted at the beginning
+
+  // Repeat outer loop, one time less than the size of the array.
+  // Terminate early if array is in correct order.
+  for(round = count - 1; (round > 0) && (!inorder); round--) {
+    inorder = 1; // Assume in correct order, until found otherwise.
+    // Repeat inner loop, testing array elements 0 through round
+    for (i = 0; i < round; i++) {
+      // Compare two adjacent elements of the array
+      if (nums[i] < nums[i+1]) {
+	// Not in correct relative order, so swap.
+	inorder = 0; // At least one pair had to be swapped
+	temp = nums[i]; // Swap!
+	nums[i] = nums[i+1];
+	nums[i+1] = temp;
+      }
+    }
+  }
+}
+
+
+
+/** Sorts an array of integers into descending order.
+ * Uses the bubble sort algorithm.
+ *
+ * @param nums Array to sort
+ * @param count Number of elements to sort
+ */
+
+void sortIcremPointer(int nums[], int count) {
+  int round; // How many times left to go through the outer loop.
+  int i; // Loop counter for the inner loop
+  int inorder; // Used as a boolean (logical). 1 = array is in correct order.
+  int temp; // Temporary variable used while swapping array elements
+
+  inorder = 0; // Assume not sorted at the beginning
+
+  // Repeat outer loop, one time less than the size of the array.
+  // Terminate early if array is in correct order.
+  for(round = count - 1; (round > 0) && (!inorder); round--) {
+    inorder = 1; // Assume in correct order, until found otherwise.
+    // Repeat inner loop, testing array elements 0 through round
+    for (i = 0; i < round; i++) {
+      // Compare two adjacent elements of the array
+      if (nums[i] < nums[i+1]) {
+	// Not in correct relative order, so swap.
+	inorder = 0; // At least one pair had to be swapped
+	temp = nums[i]; // Swap!
+	nums[i] = nums[i+1];
+	nums[i+1] = temp;
+      }
+    }
+  }
+}
+
 /** Prints the contents of a timeval struct.
  * @param t Struct to print.
  */
