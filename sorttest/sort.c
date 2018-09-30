@@ -61,7 +61,7 @@ void sortPointer(int nums[], int count) {
   int i; // Loop counter for the inner loop
   int inorder; // Used as a boolean (logical). 1 = array is in correct order.
   int temp; // Temporary variable used while swapping array elements
-
+  int* p = nums;
   inorder = 0; // Assume not sorted at the beginning
 
   // Repeat outer loop, one time less than the size of the array.
@@ -71,12 +71,13 @@ void sortPointer(int nums[], int count) {
     // Repeat inner loop, testing array elements 0 through round
     for (i = 0; i < round; i++) {
       // Compare two adjacent elements of the array
-      if (nums[i] < nums[i+1]) {
+    	int x = i + 1;
+      if (*(p+i) < *(p+x)) {
 	// Not in correct relative order, so swap.
 	inorder = 0; // At least one pair had to be swapped
-	temp = nums[i]; // Swap!
-	nums[i] = nums[i+1];
-	nums[i+1] = temp;
+	temp = *(p+i); // Swap!
+	*(p+i) = *(p+x);
+	*(p+x) = temp;
       }
     }
   }
