@@ -65,10 +65,13 @@ void print_timeval(struct timeval t) {
  */
 struct timeval timediff(struct timeval time1, struct timeval time2) {
   struct timeval diff;
-
-  // For now, set it to all zeroes
-  diff.tv_sec = 0L;
-  diff.tv_usec = 0L;
-
+  if (time2.tv_usec < time1.tv_usec) {
+	  diff.tv_sec = (time2.tv_sec - time1.tv_sec) - 1;
+	  diff.tv_usec = (time2.tv_usec - time1.tv_usec) + 999999;
+  }
+  else {
+	  diff.tv_sec = time2.tv_sec - time1.tv_sec;
+	  diff.tv_usec = time2.tv_usec - time1.tv_usec;
+  }
   return diff;
 }
