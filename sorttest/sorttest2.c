@@ -12,9 +12,9 @@
 
 int main (int argc, const char* argv[]) {
 	srand(time(0));
-  int *arr;
-  int count = atoi(argv[2]);
-  int whichOne = atoi(argv[3]);
+  int *arr; //array to use
+  int count = atoi(argv[2]); //the number passed in to be used as array size
+  int whichOne = atoi(argv[3]); //the number that determines which sort to use
 
   arr = (int*) calloc(count, sizeof(int));
   if (arr == NULL) {

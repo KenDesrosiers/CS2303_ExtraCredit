@@ -97,25 +97,30 @@ void sortIcremPointer(int nums[], int count) {
   int i; // Loop counter for the inner loop
   int inorder; // Used as a boolean (logical). 1 = array is in correct order.
   int temp; // Temporary variable used while swapping array elements
-
   inorder = 0; // Assume not sorted at the beginning
-
+  int* p = nums;
+  //int* sp = p++;
+  //int size = sizeof(nums) / sizeof(int);
   // Repeat outer loop, one time less than the size of the array.
   // Terminate early if array is in correct order.
-  for(round = count - 1; (round > 0) && (!inorder); round--) {
-    inorder = 1; // Assume in correct order, until found otherwise.
+  //for(round = count - 1; (round > 0) && (!inorder); round--) {
+    //inorder = 1; // Assume in correct order, until found otherwise.
     // Repeat inner loop, testing array elements 0 through round
-    for (i = 0; i < round; i++) {
-      // Compare two adjacent elements of the array
-      if (nums[i] < nums[i+1]) {
-	// Not in correct relative order, so swap.
-	inorder = 0; // At least one pair had to be swapped
-	temp = nums[i]; // Swap!
-	nums[i] = nums[i+1];
-	nums[i+1] = temp;
-      }
+    inorder = 1;
+    while (p < &nums[count]) {
+    	if (*p < *(p++)) {
+    		swap(p, (p++));
+    	}
+    	p++;
     }
   }
+//}
+
+void swap(int *x, int* y) {
+	int temp;
+	temp = *x;
+	*x = *y;
+	*y = temp;
 }
 
 /** Prints the contents of a timeval struct.

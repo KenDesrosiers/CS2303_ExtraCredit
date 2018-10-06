@@ -46,6 +46,7 @@ int main (int argc, const char* argv[]) {
   }
 
   // Now print, sort, and print the array, and time how long the sorting took.
+  printf("had to comment out timesort(), changed it for part 6 of the assignment\n");
   //timesort(nums, num_nums);
 
   return 0; // Indicate success!
